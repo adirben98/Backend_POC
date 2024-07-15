@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Interactive Story Book</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+      body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f9;
+}
+
+.page {
+  width: 80%;
+  height: 80%;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: white;
+}
+
+#text-section, #image-section {
+  align-items: center;
+  width: 50%;
+  float: left;
+  height: 100%;
+}
+
+#story-text {
+  width: 100%;
+  overflow-wrap: break-word;
+  margin: 0 auto;
+  max-height: 100%;
+  overflow: auto;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+#image-section {
+  position: relative;
+}
+
+.next, #prev {
+  position: absolute;
+  bottom: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+}
+
+.next {
+  right: 10px;
+}
+
+#prev {
+  left: 10px;
+}
+#image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+#story-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  margin-left: 50px;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div id="book-cover" class="page">
+      <h1>Welcome to Your Story</h1>
+      <button class="next" onclick="nextPage()">Next</button>
+    </div>
+    <div id="story-page" class="page" style="display: none">
+      <div id="text-section">
+        <p id="story-text">Story text appears here...</p>
+      </div>
+
+      <button id="prev" onclick="previousPage()">Previous</button>
+      <button class="next" onclick="nextPage()">Next</button>
+    </div>
+    <div id="image-page" class="page" style="display: none">
+      <div id="image-section">
+        <img src="" id="story-image" alt="Story Image" />
+        <button id="refresh" onclick="refreshImage()">Try Another Image</button>
+      </div>
+    </div>
+    <div id="the-end" class="page" style="display: none">
+      <h1>The End!</h1>
+      <button id="prev" onclick="previousPage()">Previous</button>
+    </div>
+    <script src="/script.js">
+      
+    </script>
+  </body>
+</html>

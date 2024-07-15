@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Story</title>
+  <style>
+    body {
+      background-color: #2ca924;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .Choose_hero {
+      display: flex; 
+      align-items: center; 
+      margin-left: 10px;
+      margin-top: 100px;
+    }
+    h3 {
+      margin: 0 20px 0 0; 
+      color: #333;
+    }
+    button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin-left: 45%;
+      margin-top: 50px;
+      cursor: pointer;
+    }
+    textarea {
+      height: 100px; 
+      width: 300px;
+      padding: 10px;
+      box-sizing: border-box; 
+    }
+  </style>
+</head>
+<body>
+  <h1>Lets Generate a Story!</h1>
+  <div class="Choose_hero">
+    <h3>Choose your hero:</h3>
+    <select name="heroes" id="hero-select">
+      <option value="Spiderman">Spiderman</option>
+      <option value="Hulk">Hulk</option>
+      <option value="SpongeBob">SpongeBob</option>
+      
+    </select>
+  </div>
+  <div class="Choose_hero">
+    <h3>Add your prompt:</h3>
+    <textarea id="prompt-textarea" placeholder="Enter your story prompt here..."></textarea>
+  </div>
+
+  <button onclick="saveInputAndRedirect()">Generate!</button>
+  <script>
+    function saveInputAndRedirect() {
+        const hero = document.getElementById('hero-select').value;
+        const prompt = document.getElementById('prompt-textarea').value;
+        console.log(hero, prompt);
+
+        localStorage.setItem('hero', hero);
+        localStorage.setItem('prompt', prompt);
+
+        window.location.href = '/results'; 
+    }
+</script>
+</body>
+</html>
